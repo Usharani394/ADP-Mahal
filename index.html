@@ -13,53 +13,30 @@ body{font-family:Arial;margin:0;background:#fafafa;color:#333}
 header{background:#7a0c0c;color:white;padding:30px;text-align:center}
 nav{background:#111;text-align:center;padding:12px}
 nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
-
 .lang{position:absolute;top:20px;right:20px}
 
-.hero{
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("ADP Mahal elevation view.jpeg");
-background-size:cover;color:white;text-align:center;padding:120px 20px
-}
-
+.hero{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("ADP Mahal elevation view.jpeg");background-size:cover;color:white;text-align:center;padding:120px 20px}
 .hero h1{font-size:40px}
 .hero p{font-size:20px}
 
 section{max-width:1100px;margin:auto;padding:50px 20px}
-
 .card{background:white;border-radius:10px;padding:30px;margin-bottom:30px;box-shadow:0 5px 12px rgba(0,0,0,0.12)}
-
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-
 button{background:#7a0c0c;color:white;border:none;padding:12px 22px;border-radius:6px;font-size:16px;cursor:pointer}
 
 .slider{position:relative;overflow:hidden;border-radius:10px}
 .slide{display:none}
 .slide img{width:100%;border-radius:10px}
-
 .gallery-large img{width:100%;margin-top:15px;border-radius:10px}
 
 form input,form textarea{width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:6px}
-
 .calendar{display:flex;gap:10px;flex-wrap:wrap}
 .calendar input{padding:10px;border-radius:6px;border:1px solid #ccc}
 
 footer{background:#111;color:white;text-align:center;padding:20px;margin-top:40px}
-
 .whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:bold}
 
-.popup{
-display:none;
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
-text-align:center;
-z-index:999;
-}
+.popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.3);text-align:center;z-index:999}
 </style>
 </head>
 
@@ -93,9 +70,7 @@ z-index:999;
 <section id="about">
 <div class="card">
 <h2 id="about_title">Welcome to ADP Mahal</h2>
-<p id="about_text">
-ADP Mahal (Adithi Paradise) is a modern and elegant function hall located in Tiruttani. Ideal for weddings, puberty ceremonies, engagements and family celebrations.
-</p>
+<p id="about_text">ADP Mahal (Adithi Paradise) is a modern and elegant function hall located in Tiruttani. Ideal for weddings, puberty ceremonies, engagements and family celebrations.</p>
 </div>
 </section>
 
@@ -103,14 +78,14 @@ ADP Mahal (Adithi Paradise) is a modern and elegant function hall located in Tir
 <div class="card">
 <h2 id="fac_title">Facilities</h2>
 <div class="grid">
-<div>❄️ Air Conditioned Party Hall</div>
-<div>🛏️ 8 Guest Rooms</div>
-<div>🍽️ Dining Area</div>
-<div>🚗 Parking Facility</div>
-<div>🔌 Power Backup</div>
-<div>🎉 Stage for Wedding Functions</div>
-<div>🏨 Family Accommodation</div>
-<div>🛕 Near Tiruttani Murugan Temple</div>
+<div id="f1">❄️ Air Conditioned Party Hall</div>
+<div id="f2">🛏️ 8 Guest Rooms</div>
+<div id="f3">🍽️ Dining Area</div>
+<div id="f4">🚗 Parking Facility</div>
+<div id="f5">🔌 Power Backup</div>
+<div id="f6">🎉 Stage for Wedding Functions</div>
+<div id="f7">🏨 Family Accommodation</div>
+<div id="f8">🛕 Near Tiruttani Murugan Temple</div>
 </div>
 </div>
 </section>
@@ -134,20 +109,20 @@ ADP Mahal (Adithi Paradise) is a modern and elegant function hall located in Tir
 
 <section id="reviews">
 <div class="card">
-<h2>Google Reviews</h2>
+<h2 id="reviews_title">Google Reviews</h2>
 <iframe src="https://www.google.com/maps?q=Tiruttani&output=embed" width="100%" height="300" style="border:0"></iframe>
-<p style="margin-top:10px">Customers can view location and reviews on Google Maps.</p>
+<p id="reviews_text" style="margin-top:10px">Customers can view location and reviews on Google Maps.</p>
 </div>
 </section>
 
 <section id="calendar">
 <div class="card">
-<h2>Check Available Dates</h2>
-<p>Select your function date and send enquiry.</p>
+<h2 id="cal_title">Check Available Dates</h2>
+<p id="cal_text">Select your function date and send enquiry.</p>
 
 <div class="calendar">
 <input type="date" id="checkdate">
-<button onclick="checkDate()">Check Availability</button>
+<button onclick="checkDate()" id="check_btn">Check Availability</button>
 </div>
 
 <p id="dateResult"></p>
@@ -160,9 +135,9 @@ ADP Mahal (Adithi Paradise) is a modern and elegant function hall located in Tir
 
 <form id="enquiryForm" action="https://formsubmit.co/venkatdheepu@gmail.com" method="POST">
 <input type="text" id="name" name="name" placeholder="Your Name" required>
-<input type="tel" name="phone" placeholder="Phone Number" required>
+<input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
 <input type="date" name="date">
-<textarea name="details" placeholder="Event Details"></textarea>
+<textarea name="details" id="details" placeholder="Event Details"></textarea>
 
 <input type="hidden" name="_subject" value="New Booking Enquiry - ADP Mahal">
 <input type="hidden" name="_captcha" value="false">
@@ -178,7 +153,7 @@ ADP Mahal (Adithi Paradise) is a modern and elegant function hall located in Tir
 <div class="popup" id="popupMsg"></div>
 
 <footer>
-<p>© 2026 ADP Mahal – Adithi Paradise</p>
+<p id="footer_text">© 2026 ADP Mahal – Adithi Paradise</p>
 </footer>
 
 <a class="whatsapp" href="https://wa.me/919168187456">WhatsApp Booking</a>
@@ -188,29 +163,12 @@ ADP Mahal (Adithi Paradise) is a modern and elegant function hall located in Tir
 /* Image Slider */
 let slides=document.querySelectorAll('.slide');
 let index=0;
-function showSlides(){
-slides.forEach(s=>s.style.display='none');
-index++;
-if(index>slides.length){index=1}
-slides[index-1].style.display='block';
-setTimeout(showSlides,3000);
-}
-showSlides();
+function showSlides(){slides.forEach(s=>s.style.display='none');index++;if(index>slides.length){index=1}slides[index-1].style.display='block';setTimeout(showSlides,3000);}showSlides();
 
 /* Auto Language Detection */
-window.onload=function(){
-let lang=navigator.language || navigator.userLanguage;
-if(lang.startsWith('ta')){
-changeLang('ta');
-document.getElementById('langSelect').value='ta';
-}
-else if(lang.startsWith('te')){
-changeLang('te');
-document.getElementById('langSelect').value='te';
-}
-};
+window.onload=function(){let lang=navigator.language||navigator.userLanguage;if(lang.startsWith('ta')){changeLang('ta');document.getElementById('langSelect').value='ta';}else if(lang.startsWith('te')){changeLang('te');document.getElementById('langSelect').value='te';}}
 
-/* Language Translation */
+/* Full Website Language Translation */
 function changeLang(lang){
 
 if(lang==='ta'){
@@ -219,7 +177,30 @@ document.getElementById('nav_fac').innerText='வசதிகள்';
 document.getElementById('nav_gallery').innerText='படங்கள்';
 document.getElementById('nav_cal').innerText='தேதி பார்க்க';
 document.getElementById('nav_book').innerText='முன்பதிவு';
+
 document.getElementById('hero_title').innerText='திருமணம் மற்றும் விழாக்களுக்கு சிறந்த இடம்';
+document.getElementById('hero_sub').innerText='250 விருந்தினர்கள் • 8 அறைகள் • சிறந்த மண்டபம்';
+document.getElementById('call_btn').innerText='பதிவு செய்ய அழைக்கவும்';
+
+document.getElementById('about_title').innerText='ADP Mahal வரவேற்கிறது';
+document.getElementById('about_text').innerText='திருத்தணியில் அமைந்துள்ள அழகான திருமண மற்றும் விழா மண்டபம்.';
+
+document.getElementById('fac_title').innerText='வசதிகள்';
+document.getElementById('f1').innerText='ஏர் கண்டிஷன் மண்டபம்';
+document.getElementById('f2').innerText='8 விருந்தினர் அறைகள்';
+document.getElementById('f3').innerText='உணவு பகுதி';
+document.getElementById('f4').innerText='கார் பார்க்கிங்';
+document.getElementById('f5').innerText='பவர் பேக்கப்';
+document.getElementById('f6').innerText='திருமண மேடை';
+document.getElementById('f7').innerText='குடும்ப தங்கும் வசதி';
+document.getElementById('f8').innerText='திருத்தணி முருகன் கோவில் அருகில்';
+
+document.getElementById('gallery_title').innerText='திருமண புகைப்படங்கள்';
+document.getElementById('reviews_title').innerText='கூகுள் விமர்சனங்கள்';
+document.getElementById('cal_title').innerText='தேதி கிடைப்பதை பார்க்க';
+document.getElementById('check_btn').innerText='தேதி சரிபார்க்க';
+document.getElementById('book_title').innerText='முன்பதிவு விசாரணை';
+document.getElementById('send_btn').innerText='அனுப்பு';
 }
 
 if(lang==='te'){
@@ -228,53 +209,41 @@ document.getElementById('nav_fac').innerText='సౌకర్యాలు';
 document.getElementById('nav_gallery').innerText='గ్యాలరీ';
 document.getElementById('nav_cal').innerText='తేదీ చూడండి';
 document.getElementById('nav_book').innerText='బుకింగ్';
+
 document.getElementById('hero_title').innerText='వివాహాలు మరియు వేడుకలకు ఉత్తమ ప్రదేశం';
+document.getElementById('hero_sub').innerText='250 అతిథులు • 8 గదులు • అందమైన హాల్';
+document.getElementById('call_btn').innerText='బుకింగ్ కోసం కాల్ చేయండి';
+
+document.getElementById('about_title').innerText='ADP Mahal కు స్వాగతం';
+document.getElementById('about_text').innerText='తిరుత్తణిలో ఉన్న అందమైన వివాహ మరియు ఫంక్షన్ హాల్.';
+
+document.getElementById('fac_title').innerText='సౌకర్యాలు';
+document.getElementById('f1').innerText='ఎయిర్ కండిషన్ హాల్';
+document.getElementById('f2').innerText='8 గెస్ట్ రూములు';
+document.getElementById('f3').innerText='డైనింగ్ ఏరియా';
+document.getElementById('f4').innerText='పార్కింగ్ సౌకర్యం';
+document.getElementById('f5').innerText='పవర్ బ్యాకప్';
+document.getElementById('f6').innerText='వివాహ వేదిక';
+document.getElementById('f7').innerText='కుటుంబ వసతి';
+document.getElementById('f8').innerText='తిరుత్తణి మురుగన్ దేవాలయం దగ్గర';
+
+document.getElementById('gallery_title').innerText='వివాహ ఫోటో గ్యాలరీ';
+document.getElementById('reviews_title').innerText='గూగుల్ సమీక్షలు';
+document.getElementById('cal_title').innerText='తేదీ లభ్యత చూడండి';
+document.getElementById('check_btn').innerText='తేదీ తనిఖీ చేయండి';
+document.getElementById('book_title').innerText='బుకింగ్ విచారణ';
+document.getElementById('send_btn').innerText='పంపండి';
 }
 
-if(lang==='en'){
-location.reload();
-}
+if(lang==='en'){location.reload();}
 }
 
 /* Date Availability Demo */
-function checkDate(){
-let d=document.getElementById('checkdate').value;
-let result=document.getElementById('dateResult');
-if(d===''){
-result.innerHTML='Please select a date.';
-return;
-}
-result.innerHTML='Selected date '+d+' looks available. Please send booking enquiry.';
-}
+function checkDate(){let d=document.getElementById('checkdate').value;let result=document.getElementById('dateResult');if(d===''){result.innerHTML='Please select a date.';return;}result.innerHTML='Selected date '+d+' looks available. Please send booking enquiry.';}
 
 /* Popup Message */
 const form=document.getElementById('enquiryForm');
-
-form.addEventListener('submit',function(e){
-
-let name=document.getElementById('name').value;
-let popup=document.getElementById('popupMsg');
-let lang=document.querySelector('.lang').value;
-
-if(lang==='ta'){
-popup.innerHTML="நன்றி Mr " + name + " 🙏! உங்கள் விசாரணை பெறப்பட்டது. விரைவில் உங்களை தொடர்புகொள்வோம்.";
-}
-else if(lang==='te'){
-popup.innerHTML="ధన్యవాదాలు Mr " + name + " 🙏! మీ విచారణ పంపబడింది. మేము త్వరలో మిమ్మల్ని సంప్రదిస్తాము.";
-}
-else{
-popup.innerHTML="Thank you Mr " + name + " 🙏! Your enquiry has been sent. We will contact you shortly.";
-}
-
-popup.style.display='block';
-
-setTimeout(()=>{
-form.submit();
-},1500);
-
-e.preventDefault();
-
-});
+form.addEventListener('submit',function(e){let name=document.getElementById('name').value;let popup=document.getElementById('popupMsg');let lang=document.querySelector('.lang').value;if(lang==='ta'){popup.innerHTML="நன்றி Mr "+name+" 🙏! உங்கள் விசாரணை பெறப்பட்டது.";}else if(lang==='te'){popup.innerHTML="ధన్యవాదాలు Mr "+name+" 🙏! మీ విచారణ పంపబడింది.";}else{popup.innerHTML="Thank you Mr "+name+" 🙏! Your enquiry has been sent.";}popup.style.display='block';setTimeout(()=>{form.submit();},1500);e.preventDefault();});
 
 </script>
 
