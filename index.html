@@ -29,6 +29,41 @@ button{background:#7a0c0c;color:white;border:none;padding:12px 22px;border-radiu
 .slide img{width:100%;border-radius:10px}
 .gallery-large img{width:100%;margin-top:15px;border-radius:10px}
 
+/* Luxury Gallery */
+.lux-gallery{max-width:100%;text-align:center}
+
+.main-image img{
+width:100%;
+max-height:500px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.thumb-row{
+display:flex;
+gap:10px;
+margin-top:15px;
+overflow-x:auto;
+padding-bottom:5px;
+}
+
+.thumb-row img{
+width:120px;
+height:80px;
+object-fit:cover;
+border-radius:6px;
+cursor:pointer;
+opacity:0.7;
+transition:0.3s;
+}
+
+.thumb-row img:hover{
+opacity:1;
+transform:scale(1.05);
+}
+
 form input,form textarea{width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:6px}
 .calendar{display:flex;gap:10px;flex-wrap:wrap}
 .calendar input{padding:10px;border-radius:6px;border:1px solid #ccc}
@@ -94,14 +129,22 @@ footer{background:#111;color:white;text-align:center;padding:20px;margin-top:40p
 <div class="card">
 <h2 id="gallery_title">Wedding Photo Gallery</h2>
 
-<div class="slider">
-<div class="slide"><img src="ADP Mahal elevation view.jpeg"></div>
-<div class="slide"><img src="ADP Mahal elevation view2.jpeg"></div>
+<!-- Luxury Gallery Slider -->
+<div class="lux-gallery">
+
+<div class="main-image">
+<img id="currentImage" src="ADP Mahal elevation view.jpeg" alt="ADP Mahal">
 </div>
 
-<div class="gallery-large">
-<img src="ADP Mahal elevation view.jpeg">
-<img src="ADP Mahal elevation view2.jpeg">
+<div class="thumb-row">
+<img src="ADP Mahal elevation view.jpeg" onclick="changeImage(this)">
+<img src="ADP Mahal elevation view2.jpeg" onclick="changeImage(this)">
+<img src="hall1.jpg" onclick="changeImage(this)">
+<img src="hall2.jpg" onclick="changeImage(this)">
+<img src="dining.jpg" onclick="changeImage(this)">
+<img src="rooms.jpg" onclick="changeImage(this)">
+</div>
+
 </div>
 
 </div>
@@ -275,6 +318,20 @@ function checkDate(){let d=document.getElementById('checkdate').value;let result
 /* Popup Message */
 const form=document.getElementById('enquiryForm');
 form.addEventListener('submit',function(e){let name=document.getElementById('name').value;let popup=document.getElementById('popupMsg');let lang=document.querySelector('.lang').value;if(lang==='ta'){popup.innerHTML="நன்றி Mr "+name+" 🙏! உங்கள் விசாரணை பெறப்பட்டது.";}else if(lang==='te'){popup.innerHTML="ధన్యవాదాలు Mr "+name+" 🙏! మీ విచారణ పంపబడింది.";}else{popup.innerHTML="Thank you Mr "+name+" 🙏! Your enquiry has been sent.";}popup.style.display='block';setTimeout(()=>{form.submit();},1500);e.preventDefault();});
+
+/* Gallery Thumbnail Click */
+function changeImage(el){
+let main=document.getElementById('currentImage');
+main.src=el.src;
+}
+
+/* Fullscreen view */
+const mainImg=document.getElementById('currentImage');
+if(mainImg){
+mainImg.addEventListener('click',()=>{
+if(mainImg.requestFullscreen){mainImg.requestFullscreen();}
+});
+}
 
 </script>
 
